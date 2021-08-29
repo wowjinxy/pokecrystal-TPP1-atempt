@@ -1,26 +1,26 @@
 Unreferenced_StopRTC:
 	ld a, SRAM_ENABLE
-	ld [MBC3SRamEnable], a
+	ld [TPP1SRamEnable], a
 	call LatchClock
 	ld a, RTC_DH
 	ldh [hSRAMBank], a
-	ld [MBC3SRamBank], a
-	ld a, [MBC3RTC]
+	ld [TPP1SRamBank], a
+	ld a, [TPP1RTC]
 	set 6, a ; halt
-	ld [MBC3RTC], a
+	ld [TPP1RTC], a
 	call CloseSRAM
 	ret
 
 StartRTC:
 	ld a, SRAM_ENABLE
-	ld [MBC3SRamEnable], a
+	ld [TPP1SRamEnable], a
 	call LatchClock
 	ld a, RTC_DH
 	ldh [hSRAMBank], a
-	ld [MBC3SRamBank], a
-	ld a, [MBC3RTC]
+	ld [TPP1SRamBank], a
+	ld a, [TPP1RTC]
 	res 6, a ; halt
-	ld [MBC3RTC], a
+	ld [TPP1RTC], a
 	call CloseSRAM
 	ret
 
